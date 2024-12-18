@@ -26,6 +26,5 @@ int main() {
         printf("Cars %d: %s\n", i, cars[i]);
     }
 
-    
     return 0;
 }

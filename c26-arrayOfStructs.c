@@ -1,28 +1,30 @@
-#include <stdio.h>
-#include <string.h>
+// Description: Array of structs
 
-struct Player {
+#include <stdio.h>
+
+// Create student structure
+typedef struct {
     char name[50];
-    float ppg;
-};
+    float gpa;
+} Student;
 
 int main() {
-    struct Player player1 = {"Stephen Curry", 22.0};
-    struct Player player2 = {"Lebron James", 23.2};
-    struct Player player3 = {"Kevin Durant", 27.6};
-    struct Player player4 = {"Giannis Antetokounmpo", 31.6};
+
+    // Create instances of students
+    Student student1 = {"Spongebob", 8.3};
+    Student student2 = {"Steph curry", 9.2};
+    Student student3 = {"Lebron James", 9.3};
+
+    // Array of students
+    Student students[] = {student1, student2, student3};
+
+    // Loop through the array
+    int size = sizeof(students) / sizeof(students[0]);
     
-    // Create the array of structs
-    struct Player array[] = {player1, player2, player3, player4};
-    int length = sizeof(array) / sizeof(array[0]);
-
-    // Loop throught the array
-    // \t tab
-    // %-12s left justify %s
-    for (int i = 0; i < length; i++) {
-        printf("Name: %-30s\t", array[i].name); 
-        printf("PPG: %.1f\n", array[i].ppg);
+    for (int i = 0; i < size; i++) {
+        printf("%s", students[i].name);
+        printf("%d\n", students[i].gpa);
     }
-
+    
     return 0;
 }
